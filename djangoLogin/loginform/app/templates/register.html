@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Home</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+    <hgroup>
+    <h1>Create a New Account</h1>
+    {% if error %}
+    <h4>{{ error }}</h4>
+    {% endif %}
+    </hgroup>
+    <form method="post" action="signup" >
+        {% csrf_token %}
+        <div class="group">
+            <input type="text" name="username"><span class="highlight"></span>
+            <label>Username</label>
+        </div>
+        <div class="group">
+            <input type="text" name="password"><span class="highlight"></span>
+            <label>Password</label>
+        </div>
+        </div>
+        <div class="group">
+            <input type="text" name="passwordagain"><span class="highlight"></span>
+            <label>Confirm Password</label>
+        </div>
+        <button type="submit" class="button buttonBlue">Register !!
+            <div class="ripples buttonRipples"><span class="ripplesCircle"></span></div>
+        </button>
+
+        <a href="{% url 'home' %}">Try loging In..</a>
+    </form>       
+    </body>
+</html>
